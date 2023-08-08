@@ -13,7 +13,7 @@ Newt's starter
 ## 概要
 
 [Newt](https://www.newt.so/) と [Next.js](https://nextjs.org/) を利用したドキュメントサイトです。<br />
-[App Router](https://nextjs.org/docs/app) を用いて、ブログを作成してみたい方はぜひお試しください。
+[App Router](https://nextjs.org/docs/app) を用いて、ドキュメントサイトを作成してみたい方はぜひお試しください。
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FNewt-Inc%2Fnewt-starter-nextjs-docs)
 
