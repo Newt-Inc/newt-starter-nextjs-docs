@@ -1,0 +1,24 @@
+.Search {
+  position: relative;
+}
+.Search svg {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  opacity: 0.2;
+}
+.Search input {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 10px 16px 10px 36px;
+  border-radius: 4px;
+  margin: 0 0 36px 0;
+  transition: border 0.2s;
+  appearance: none;
+}
+.Search input:hover {
+  border: 1px solid #888;
+}
+.Search input:focus {
+  outline-offset: 0;
+}

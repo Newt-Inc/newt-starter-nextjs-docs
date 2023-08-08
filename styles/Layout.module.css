@@ -1,0 +1,18 @@
+.Wrapper {
+  width: 100%;
+  position: relative;
+}
+.Main {
+  max-width: 1024px;
+  margin: 0 auto;
+  align-items: flex-start;
+  min-height: 0;
+  display: block;
+  padding: 0;
+}
+@media (min-width: 600px) {
+  .Main {
+    display: flex;
+    padding: 50px 60px 0;
+  }
+}

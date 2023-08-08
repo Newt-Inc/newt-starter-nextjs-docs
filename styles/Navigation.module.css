@@ -1,0 +1,78 @@
+.Nav {
+  max-width: 240px;
+  width: 30%;
+  margin: 0 60px 0 0;
+  padding: 60px 0 20px 0;
+  position: sticky;
+  top: 50px;
+  overflow: auto;
+  height: calc(100vh - 190px);
+  display: none;
+}
+@media (min-width: 600px) {
+  .Nav {
+    display: block;
+  }
+}
+
+.Nav_Contents {
+  margin: 0 0 12px 0;
+  padding: 0;
+}
+.Nav_Contents dt {
+  margin: 0 0 8px -4px;
+  padding: 0;
+  font-size: 1.5rem;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+.Nav_Contents dt svg {
+  position: relative;
+  top: 4px;
+  left: 2px;
+  margin: 0 4px 0 0;
+}
+.Nav_Contents dd {
+  margin: 0 0 20px 8px;
+  padding: 0;
+  border-left: 1px solid #e5e5e5;
+}
+.Nav_Contents dd ul {
+  margin: 0;
+  padding: 0 0 0 8px;
+}
+.Nav_Contents dd ul li {
+  font-size: 1.4rem;
+  margin: 0;
+  padding: 0 0 0 24px;
+  list-style: none;
+}
+.Nav_Contents dd ul li a {
+  color: #888;
+  padding: 3px 0;
+  display: inline-block;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s;
+}
+.Nav_Contents dd ul li a::after {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+  background: #888;
+  position: absolute;
+  left: -18px;
+  top: 14px;
+}
+.Nav_Contents dd ul li a:hover {
+  color: #333;
+}
+.Nav_Contents dd ul li a[aria-current='true'] {
+  color: #333;
+  font-weight: bold;
+}
+.Nav_Contents dd ul li a[aria-current='true']::after {
+  background: #333;
+}
