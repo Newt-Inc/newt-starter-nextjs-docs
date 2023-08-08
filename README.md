@@ -30,7 +30,7 @@ Newt's starter
 
 ### Step2: .env.local ファイルを作成する
 
-[.env.local.example](https://github.com/Newt-Inc/newt-starter-nextjs-docs/blob/main/.env.local.example) ファイルを参考に、`.env.local` ファイルを作成します。
+[.env.local.example](https://github.com/Newt-Inc/newt-starter-nextjs-docs/blob/main/.env.local.example) ファイルを参考に、`.env.local` ファイルを作成します。<br />
 Step1 で取得したスペース UID・AppUID・CDN API トークンの値を設定します。
 
 ```conf
