@@ -1,5 +1,5 @@
-import { cache } from 'react'
 import { createClient } from 'newt-client-js'
+import { cache } from 'react'
 import type { Article } from '@/types/article'
 import type { Category } from '@/types/category'
 
