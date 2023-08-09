@@ -13,7 +13,18 @@ type Props = {
 export default async function Page({ searchParams }: Props) {
   const { q } = searchParams
 
-  const articles = q ? await getArticles({ search: q }) : []
+  const articles = q
+    ? await getArticles({
+        or: [
+          {
+            title: { match: q },
+          },
+          {
+            body: { match: q },
+          },
+        ],
+      })
+    : []
 
   return (
     <>

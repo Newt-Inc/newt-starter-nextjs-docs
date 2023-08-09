@@ -1,5 +1,6 @@
 import { createClient } from 'newt-client-js'
 import { cache } from 'react'
+import type { GetContentsQuery } from 'newt-client-js'
 import type { Article } from '@/types/article'
 import type { Category } from '@/types/category'
 
@@ -17,37 +18,15 @@ export const getApp = cache(async () => {
 })
 
 export const getArticles = cache(
-  async (options?: { search?: string; category?: string }) => {
-    const { search, category } = options || {}
-    const query: Record<string, any> = {}
-    if (search) {
-      query.or = [
-        {
-          title: {
-            match: search,
-          },
-        },
-        {
-          body: {
-            match: search,
-          },
-        },
-      ]
-    }
-    if (category) {
-      query.category = category
-    }
-
+  async (query?: GetContentsQuery): Promise<Article[]> => {
     const { items: articles } = await client.getContents<Article>({
       appUid: process.env.NEXT_PUBLIC_NEWT_APP_UID + '',
       modelUid: process.env.NEXT_PUBLIC_NEWT_ARTICLE_MODEL_UID + '',
       query: {
-        depth: 2,
         order: ['_sys.customOrder'],
         ...query,
       },
     })
-
     return articles
   },
 )
