@@ -1,6 +1,6 @@
 import { createClient } from 'newt-client-js'
 import { cache } from 'react'
-import type { GetContentsQuery } from 'newt-client-js'
+import type { AppMeta, GetContentsQuery } from 'newt-client-js'
 import type { Article } from '@/types/article'
 import type { Category } from '@/types/category'
 
@@ -10,7 +10,7 @@ const client = createClient({
   apiType: process.env.NEXT_PUBLIC_NEWT_API_TYPE as 'cdn' | 'api',
 })
 
-export const getApp = cache(async () => {
+export const getApp = cache(async (): Promise<AppMeta> => {
   const app = await client.getApp({
     appUid: process.env.NEXT_PUBLIC_NEWT_APP_UID + '',
   })
@@ -31,22 +31,24 @@ export const getArticles = cache(
   },
 )
 
-export const getArticle = cache(async (slug: string) => {
-  if (!slug) return null
+export const getArticle = cache(
+  async (slug: string): Promise<Article | null> => {
+    if (!slug) return null
 
-  const article = await client.getFirstContent<Article>({
-    appUid: process.env.NEXT_PUBLIC_NEWT_APP_UID + '',
-    modelUid: process.env.NEXT_PUBLIC_NEWT_ARTICLE_MODEL_UID + '',
-    query: {
-      depth: 2,
-      order: ['_sys.customOrder'],
-      slug,
-    },
-  })
-  return article
-})
+    const article = await client.getFirstContent<Article>({
+      appUid: process.env.NEXT_PUBLIC_NEWT_APP_UID + '',
+      modelUid: process.env.NEXT_PUBLIC_NEWT_ARTICLE_MODEL_UID + '',
+      query: {
+        depth: 2,
+        order: ['_sys.customOrder'],
+        slug,
+      },
+    })
+    return article
+  },
+)
 
-export const getCategories = cache(async () => {
+export const getCategories = cache(async (): Promise<Category[]> => {
   const { items: categories } = await client.getContents<Category>({
     appUid: process.env.NEXT_PUBLIC_NEWT_APP_UID + '',
     modelUid: process.env.NEXT_PUBLIC_NEWT_CATEGORY_MODEL_UID + '',
