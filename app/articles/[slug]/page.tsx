@@ -48,10 +48,6 @@ export default async function Page({ params }: Props) {
     notFound()
   }
 
-  const body = {
-    __html: article.body || '',
-  }
-
   return (
     <>
       <Navigation current={article} />
@@ -59,7 +55,7 @@ export default async function Page({ params }: Props) {
         <h1 className={styles.Article_Title}>{article?.title || ''}</h1>
         <div
           className={styles.Article_Body}
-          dangerouslySetInnerHTML={body}
+          dangerouslySetInnerHTML={{ __html: article.body }}
         ></div>
       </article>
     </>
