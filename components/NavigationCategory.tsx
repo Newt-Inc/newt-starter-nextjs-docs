@@ -43,7 +43,7 @@ export function NavigationCategory({
         )}
         {category.name}
       </dt>
-      {isOpen && <>{children}</>}
+      {isOpen && <dd>{children}</dd>}
     </dl>
   )
 }
