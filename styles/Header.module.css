@@ -56,7 +56,7 @@
   display: none;
 }
 .Link > a {
-  color: #888;
+  color: #666;
   text-decoration: none;
   transition: color 0.2s;
   padding: 3px 12px;
